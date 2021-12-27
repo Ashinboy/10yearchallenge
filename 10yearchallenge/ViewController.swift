@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     }
     //datePicker 透過pikachuChange func操控對應時間
     
-    @IBAction func datePicker(_ sender: UIDatePicker) {
+    @IBAction func yearPicker(_ sender: UIDatePicker) {
         pikachuChange(date: datePicker.date)
     }
    
