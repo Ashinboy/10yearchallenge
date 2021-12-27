@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timeChange()
         // Do any additional setup after loading the view.
     }
 
@@ -74,7 +75,7 @@ class ViewController: UIViewController {
     
     //年份func設定
     
-    func timechange(){
+    func timeChange(){
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "yyyy"
         
