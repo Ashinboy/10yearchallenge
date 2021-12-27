@@ -52,6 +52,8 @@ class ViewController: UIViewController {
     
     @IBAction func autoPlay(_ sender: UISwitch) {
         if sender.isOn{
+            
+            //timeInterval開始的時間，target是你的目標對象，selector是你想執行的func，userInfo是有沒有想觸發的元件，最後是否循環?
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(yearControl), userInfo: nil, repeats: true)
         }else{
             timer?.invalidate() //關閉自動播放功能
@@ -73,19 +75,20 @@ class ViewController: UIViewController {
         pikachuChange(date: dateFormatter.date(from: "\(year)")!)
     }
     
-    //年份func設定
+    //建立年份func
     
     func timeChange(){
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
         
+        //起始年份設定
         pikachuImage.image = UIImage(named: "1996")
-        datePicker.setDate(dateformatter.date(from: "1996")!, animated: true)
+        datePicker.setDate(dateFormatter.date(from: "1996")!, animated: true)
         sliderYear.setValue(1996, animated: true)
     }
     
     
-    //圖片func設定
+    //同步func設定
     
     func pikachuChange(date: Date){
         let dateformatter = DateFormatter()
@@ -93,7 +96,7 @@ class ViewController: UIViewController {
         
         //將年份轉為字串
         let year = dateformatter.string(from: date)
-        dateText.text = "\(year)的皮卡丘"
+        dateText.text = "\(year)年的皮卡丘"
         pikachuImage.image = UIImage(named: "\(year)")
         //讓datePicker / slider跟著跑動
         datePicker.setDate(date, animated: true)
